@@ -1,6 +1,5 @@
 import {Tutorial} from '../models/model';
 
-
 export class AddTutorial {
   static readonly type = '[TUTORIAL] Add';
   constructor(public payload: Tutorial) {}

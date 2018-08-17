@@ -1,0 +1,19 @@
+<h2>Search for your location on the Google Geocode API</h2>
+<input type="text" placeholder="searchTerm" #searchTerm value="karlsruhe">
+<button (click)="searchForLocation(searchTerm.value)" >search</button>
+
+<h2>Result</h2>
+<table>
+  <tr>
+    <td>LongName</td>
+    <td>{{(geoInformation$ | async).longName}}</td>
+  </tr>
+  <tr>
+    <td>Latitude</td>
+    <td>{{(geoInformation$ | async).latitude}}</td>
+  </tr>
+  <tr>
+    <td>Longitude</td>
+    <td>{{(geoInformation$ | async).longitude}}</td>
+  </tr>
+</table>

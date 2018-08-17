@@ -10,19 +10,30 @@ import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { AppComponent } from './app.component';
 import { ReadComponent } from './read/read.component';
 import { CreateComponent } from './create/create.component';
+import {AngularFireModule} from 'angularfire2';
+import {environment} from '../environments/environment';
+import {AngularFirestoreModule} from 'angularfire2/firestore';
+import { SearchLocationComponent } from './search-location/search-location.component';
+import {HttpClientModule} from '@angular/common/http';
+import {GeocodeState} from './state/geocode.state';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ReadComponent,
-    CreateComponent
+    CreateComponent,
+    SearchLocationComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     NgxsModule.forRoot([
-      TutorialState
+      TutorialState,
+      GeocodeState
     ]),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot()
   ],

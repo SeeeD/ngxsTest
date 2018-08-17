@@ -27,6 +27,7 @@ export class TutorialState {
   add({getState, patchState }: StateContext<TutorialStateModel>, { payload }: AddTutorial) {
     payload.id = Guid.newGuid().toString();
     const state = getState();
+
     patchState({
       tutorials: [...state.tutorials, payload]
     });
