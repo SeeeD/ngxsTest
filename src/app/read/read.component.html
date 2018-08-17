@@ -1,0 +1,18 @@
+<div class="right" *ngIf="tutorials$">
+
+  <h3>Tutorials</h3>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Url</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let tutorial of tutorials$ | async">
+      <td>{{ tutorial.id}}</td>
+      <td>{{ tutorial.name}}</td>
+      <td><a [href]="tutorial.url" target="_blank">{{ tutorial.name }}</a></td>
+      <td><a (click)="deleteTutorial(tutorial.id)" >x</a></td>
+    </tr>
+  </table>
+</div>
